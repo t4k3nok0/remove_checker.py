@@ -49,19 +49,19 @@ else:
 
     print ("フォローを外した人をチェック中です")
 
-    #now_follower = open('now_follower_list.txt', 'w')
+    now_follower = open('now_follower_list.txt', 'w')
 
-    #try:
-    #    pos = 1
-    #    for user in tweepy.Cursor(api.friends, count=200, cursor=-1).items():
-    #        now_follower.write(str(user.screen_name) + ",")
-    #        pos += 1
+    try:
+        pos = 1
+        for user in tweepy.Cursor(api.friends, count=200, cursor=-1).items():
+            now_follower.write(str(user.screen_name) + ",")
+            pos += 1
 
-#    except TweepError as e:
- #       print(e.reason)
-  #      sys.exit()
+    except TweepError as e:
+        print(e.reason)
+        sys.exit()
 
-   # now_follower.close()
+    now_follower.close()
     print("取得成功")
     open_follower_list_base = open("follower_list_base.txt", "r")
     base = open_follower_list_base.read()
